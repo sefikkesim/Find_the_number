@@ -18,9 +18,6 @@ else {
 }}
 
 let randomNumber =  Math.floor(Math.random() * 101 );
-console.log(randomNumber)
-
-
 checkBtn.addEventListener("click" , (e) => {
 if(userNumber.value <= 0 || userNumber.value > 100 || isNaN (userNumber.value) || userNumber == ""){
 numberCheck.innerText = "Please try again.  "
@@ -39,9 +36,8 @@ numberCheck.style.color="white"
 if (randomNumber > userNumber.value ){
 numberCheck.innerText = " The  number is higher than your number."
 numberCheck.style.color="white"
-}
-}
-)
+}})
+
 resetBtn.addEventListener("click" , () => {
 location.reload();
 })
@@ -51,13 +47,10 @@ userNumber.addEventListener("keyup",(e) =>{
     checkBtn.click();
   validation.textContent = " ";
   };
-  
 })
-
 userNumber.addEventListener("focus", ()=>{
   validation.textContent = " ";
   numberCheck.textContent = " ";
-
 })
 
 
