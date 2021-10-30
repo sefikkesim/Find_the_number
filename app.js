@@ -1,9 +1,10 @@
-let randomNumber = () => Math.floor(Math.random() * 101 );
+
 let checkBtn = document.getElementById("check_btn");
 let userNumber = document.getElementById("input_number");
 let validation = document.getElementById("validation_check");
 let numberCheck = document.getElementById("number_check");
 let resetBtn = document.getElementById("reset_btn")
+
 
 userNumber.onkeyup = () => { 
 if (userNumber.value > 0 && userNumber.value <= 100 && userNumber.value != String) {
@@ -15,25 +16,30 @@ else {
   validation.style.color ="red"
 
 }}
+
+let randomNumber =  Math.floor(Math.random() * 101 );
+console.log(randomNumber)
+
+
 checkBtn.addEventListener("click" , () => {
-let randomNumber = () => Math.floor(Math.random() * 101 );
-if(userNumber.value <= 0 || userNumber.value > 100 || userNumber.value == String || userNumber == ""){
+if(userNumber.value <= 0 || userNumber.value > 100 || isNaN (userNumber.value) || userNumber == ""){
 numberCheck.innerText = "Please try again.  "
 numberCheck.style.color="red" }
 
-else if (randomNumber() == userNumber.value ) {
+if (randomNumber == (userNumber.value) ) {
 numberCheck.innerText = " Congratulation!! You win."
 numberCheck.style.backgroundColor="red"
 numberCheck.style.fontSize="3rem"
 }
-else if (randomNumber() < userNumber.value ){
-numberCheck.innerText = " The random number is  less than your number." 
+if (randomNumber < userNumber.value ){
+numberCheck.innerText = " The  number is  less than your number." 
 numberCheck.style.color="white"
 }
-else if (randomNumber() > userNumber.value ){
-numberCheck.innerText = " The random number is high than your number."
+if (randomNumber > userNumber.value ){
+numberCheck.innerText = " The  number is high than your number."
 numberCheck.style.color="white"
 }
+validation.textContent = " "
 }
 )
 resetBtn.addEventListener("click" , () => {
