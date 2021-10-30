@@ -21,7 +21,7 @@ let randomNumber =  Math.floor(Math.random() * 101 );
 console.log(randomNumber)
 
 
-checkBtn.addEventListener("click" , () => {
+checkBtn.addEventListener("click" , (e) => {
 if(userNumber.value <= 0 || userNumber.value > 100 || isNaN (userNumber.value) || userNumber == ""){
 numberCheck.innerText = "Please try again.  "
 numberCheck.style.color="red" }
@@ -30,21 +30,34 @@ if (randomNumber == (userNumber.value) ) {
 numberCheck.innerText = " Congratulation!! You win."
 numberCheck.style.backgroundColor="red"
 numberCheck.style.fontSize="3rem"
+userNumber.style.display = "none"
 }
 if (randomNumber < userNumber.value ){
 numberCheck.innerText = " The  number is  less than your number." 
 numberCheck.style.color="white"
 }
 if (randomNumber > userNumber.value ){
-numberCheck.innerText = " The  number is high than your number."
+numberCheck.innerText = " The  number is higher than your number."
 numberCheck.style.color="white"
 }
-validation.textContent = " "
 }
 )
 resetBtn.addEventListener("click" , () => {
 location.reload();
 })
-    
+
+userNumber.addEventListener("keyup",(e) =>{
+  if(e.code === "Enter"){
+    checkBtn.click();
+  validation.textContent = " ";
+  };
+  
+})
+
+userNumber.addEventListener("focus", ()=>{
+  validation.textContent = " ";
+  numberCheck.textContent = " ";
+
+})
 
 
